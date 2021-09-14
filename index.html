@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nether Portal Calculator</title>
+    <style>
+      .overworld {
+        border-radius: 25px;
+        background: lime;
+        color: #000000;
+        padding: 20px;
+        width: 250px;
+        height: 70px;
+      }
+      .nether {
+        border-radius: 25px;
+        background: red;
+        color: #000000;
+        padding: 20px;
+        width: 250px;
+        height: 70px;
+      }
+    </style>
+    <script>
+      function update(type) {
+        let x, y, z;
+        if(type == 0) {
+          let a = ov1.value;
+          let b = ov2.value;
+          let c = ov3.value;
+          a = a / 8;
+          b = b * 1;
+          c = c / 8;
+          ne1.value = a;
+          ne2.value = b;
+          ne3.value = c;
+        } else if(type == 1) {
+          let a = ne1.value;
+          let b = ov2.value;
+          let c = ne3.value;
+          a = a * 8;
+          b = b * 1;
+          c = c * 8;
+          ov1.value = a;
+          ov2.value = b;
+          ov3.value = c;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1> Nether Portal Calculator </h1>
+    <hr>
+    <h3> Lime = Overworld <br> Red = Nether</h3>
+    <br>
+    <div class="overworld">
+      X : <input type="number" onkeyup="update(0)" id="ov1" value="0" fieldset="X"><br>
+      Y : <input type="number" onkeyup="update(0)" id="ov2" value="0" fieldset="Y"><br>
+      Z : <input type="number" onkeyup="update(0)" id="ov3" value="0" fieldset="Z">
+    </div>
+    <div class="nether">
+      X : <input type="number" onkeyup="update(1)" id="ne1" value="0" fieldset="X"><br>
+      Y : <input type="number" onkeyup="update(1)" id="ne2" value="0" fieldset="Y"><br>
+      Z : <input type="number" onkeyup="update(1)" id="ne3" value="0" fieldset="Z">
+    </div>
+  </body>
+</html>
